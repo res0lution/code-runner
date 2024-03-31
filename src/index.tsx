@@ -12,7 +12,7 @@ const App = () => {
   const initializeEsbuildService = async () => {
     await esbuild.initialize({
       worker: true,
-      wasmURL: "/esbuild.wasm",
+      wasmURL: "https://unpkg.com/esbuild-wasm/esbuild.wasm",
     });
 
     esBuildRef.current = esbuild;
@@ -27,7 +27,7 @@ const App = () => {
       entryPoints: ["index.js"],
       bundle: true,
       write: false,
-      plugins: [unpkgPlugin()],
+      plugins: [unpkgPlugin(input)],
       define: {
         "process.env.NODE_ENV": '"production"',
         global: "window",
