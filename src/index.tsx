@@ -5,6 +5,8 @@ import ReactDOM from "react-dom/client";
 import { unpkgPlugin } from "./plugins/unpkg-plugin";
 import Editor from "./components/editor";
 
+import "bulmaswatch/superhero/bulmaswatch.min.css";
+
 const App = () => {
   const esBuildRef = useRef<any>();
   const iframe = useRef<any>();
