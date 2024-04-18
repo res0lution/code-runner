@@ -3,8 +3,9 @@ import React, { useRef } from "react";
 import prettier from "prettier";
 import parserBabel from "prettier/plugins/babel";
 import * as prettierPluginEstree from "prettier/plugins/estree";
-import codeShift from "jscodeshift";
-import Highlighter from "monaco-jsx-highlighter";
+import Highlighter, { makeBabelParse } from "monaco-jsx-highlighter";
+import traverse from "@babel/traverse";
+import { parse } from "@babel/parser";
 
 import "./editor.css";
 import "./syntax.css";
@@ -28,18 +29,18 @@ const Editor: React.FC<EditorProps> = ({ value, onChange }) => {
 
     editor.getModel()?.updateOptions({ tabSize: 2 });
 
+    const parseJSX = makeBabelParse(parse, true);
+
     const highlighter = new Highlighter(
       // @ts-ignore
       window.monaco,
-      codeShift,
+      parseJSX,
+      traverse,
       editor
     );
-    highlighter.highLightOnDidChangeModelContent(
-      () => {},
-      () => {},
-      undefined,
-      () => {}
-    );
+
+    highlighter.highlightOnDidChangeModelContent(100);
+    highlighter.addJSXCommentCommand();
   };
 
   const onFormatClick = async () => {
@@ -53,7 +54,6 @@ const Editor: React.FC<EditorProps> = ({ value, onChange }) => {
       singleQuote: true,
     });
 
-    console.log(formatted, editorRef.current);
     editorRef.current.setValue(formatted.replace(/\n$/, ""));
   };
 
