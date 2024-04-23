@@ -1,61 +1,138 @@
-.JSXElement.JSXIdentifier {
-  color: royalblue;
+.editor-wrapper .mtk1 {
+  color: #d4d4d4 !important;
+}
+.editor-wrapper .mtk2 {
+  color: #1e1e1e !important;
+}
+.editor-wrapper .mtk3 {
+  color: #000080 !important;
+}
+.editor-wrapper .mtk4 {
+  color: #6a9955 !important;
+}
+.editor-wrapper .mtk5 {
+  color: #569cd6 !important;
+}
+.editor-wrapper .mtk6 {
+  color: #b5cea8 !important;
+}
+.editor-wrapper .mtk7 {
+  color: #646695 !important;
+}
+.editor-wrapper .mtk8 {
+  color: #c586c0 !important;
+}
+.editor-wrapper .mtk9 {
+  color: #9cdcfe !important;
+}
+.editor-wrapper .mtk10 {
+  color: #f44747 !important;
+}
+.editor-wrapper .mtk11 {
+  color: #ce9178 !important;
+}
+.editor-wrapper .mtk12 {
+  color: #6796e6 !important;
+}
+.editor-wrapper .mtk13 {
+  color: #808080 !important;
+}
+.editor-wrapper .mtk14 {
+  color: #d16969 !important;
+}
+.editor-wrapper .mtk15 {
+  color: #dcdcaa !important;
+}
+.editor-wrapper .mtk16 {
+  color: #4ec9b0 !important;
+}
+.editor-wrapper .mtk17 {
+  color: #c586c0 !important;
+}
+.editor-wrapper .mtk18 {
+  color: #4fc1ff !important;
+}
+.editor-wrapper .mtk19 {
+  color: #c8c8c8 !important;
+}
+.editor-wrapper .mtk20 {
+  color: #cd9731 !important;
+}
+.editor-wrapper .mtk21 {
+  color: #b267e6 !important;
+}
+.editor-wrapper .mtki {
+  font-style: italic !important;
+}
+.editor-wrapper .mtkb {
+  font-weight: bold !important;
+}
+.editor-wrapper .mtku {
+  text-decoration: underline !important;
+  text-underline-position: under !important;
 }
 
-.JSXElement.JSXBracket {
-  color: darkorange;
+.editor-wrapper .mtk100.Identifier.JsxElement.Bracket {
+  color: #0080ff !important;
 }
 
-.JSXElement.JSXText {
-  color: darkgoldenrod;
+.editor-wrapper .mtk1000.Identifier.JsxOpeningElement.Bracket {
+  color: #808080 !important;
+  font-weight: bold !important;
 }
 
-.JSXElement.JSXGlyph {
-  background: cyan;
-  opacity: 0.25;
+.editor-wrapper .mtk1001.Identifier.JsxClosingElement.Bracket {
+  color: #808080 !important;
+  font-weight: lighter !important;
 }
 
-.JSXOpeningFragment.JSXBracket {
-  color: darkorange;
-  font-weight: bold;
+.editor-wrapper .mtk101.Identifier.JsxOpeningElement.Identifier {
+  color: #569cd6 !important;
 }
 
-.JSXClosingFragment.JSXBracket {
-  color: darkorange;
-  font-weight: bold;
+.editor-wrapper .mtk102.Identifier.JsxClosingElement.Identifier {
+  color: #569cd6 !important;
+  font-weight: lighter !important;
 }
 
-.JSXOpeningElement.JSXBracket {
-  color: darkorange;
-  font-weight: bold;
+.editor-wrapper .mtk103.Identifier.JsxAttribute.Identifier {
+  color: #9cdcfe !important;
 }
 
-.JSXOpeningElement.JSXIdentifier {
-  color: royalblue;
+.editor-wrapper .mtk104.JsxElement.JsxText {
+  color: darkgoldenrod !important;
 }
 
-.JSXClosingElement.JSXBracket {
-  color: darkorange;
-  font-weight: lighter;
+.editor-wrapper .mtk105.glyph.Identifier.JsxElement {
+  background: #61dafb !important;
+  opacity: 0.25 !important;
 }
 
-.JSXClosingElement.JSXIdentifier {
-  color: royalblue;
-  font-weight: lighter;
+.editor-wrapper .mtk12.Identifier.JsxExpression.JsxClosingElement {
+  color: #ec5f67 !important;
 }
 
-.JSXAttribute.JSXIdentifier {
-  color: steelblue;
+.editor-wrapper .mtk12.Identifier.JsxSelfClosingElement {
+  color: #ec5f67 !important;
 }
-
-.JSXExpressionContainer.JSXBracket {
-  color: darkorange;
+.editor-wrapper .mtk12.Identifier.VariableStatement.JsxClosingElement {
+  color: #ec5f67 !important;
 }
-
-.JSXSpreadChild.JSXBracket {
-  color: darkorange;
+.editor-wrapper .mtk12.VariableStatement.JsxSelfClosingElement.Identifier {
+  color: #ec5f67 !important;
 }
-
-.JSXSpreadAttribute.JSXBracket {
-  color: darkorange;
+.editor-wrapper .mtk12.Identifier.JsxAttribute.VariableDeclaration {
+  color: crimson !important;
+}
+.editor-wrapper .mtk12.JsxExpression.VariableStatement {
+  color: #fac863 !important;
+}
+.editor-wrapper .mtk12.VariableStatement.JsxSelfClosingElement {
+  color: #ede0e0 !important;
+}
+.editor-wrapper .mtk12.VariableStatement.JsxClosingElement {
+  color: #ede0e0 !important;
+}
+.editor-wrapper .JsxText {
+  color: #0c141f !important;
 }

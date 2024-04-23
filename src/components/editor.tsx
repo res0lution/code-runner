@@ -58,7 +58,7 @@ const Editor: React.FC<EditorProps> = ({ value, onChange }) => {
   };
 
   return (
-    <div className="wrapper">
+    <div className="editor-wrapper">
       <MonacoEditor
         onMount={onEditorDidMount}
         value={value}
