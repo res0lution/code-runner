@@ -1,12 +1,14 @@
 .editor-wrapper {
   position: relative;
   height: 100%;
+  width: 100%;
+  z-index: 9;
 }
 
 .format-btn {
   position: absolute;
   top: -40px;
-  left: 95%;
+  left: 15px;
   z-index: 20;
   opacity: 0;
   transition: opacity 0.3s;
