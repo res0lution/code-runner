@@ -8,9 +8,12 @@ import "bulmaswatch/superhero/bulmaswatch.min.css";
 
 const App = () => {
   useEffect(() => {
-    esbuild.initialize({
+   esbuild.initialize({
       worker: true,
       wasmURL: "https://unpkg.com/esbuild-wasm/esbuild.wasm",
+    }).then(() => { 
+      // @ts-ignore
+      window.isEsBuild = true 
     });
   }, []);
 
