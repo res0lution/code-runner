@@ -1,15 +1,19 @@
 import MDEditor from "@uiw/react-md-editor";
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState, useContext } from "react";
+import { CellsStoreContext } from "../stores/CellsStore";
+import { observer } from "mobx-react"
 
 import "./text-editor.css"
 
 
-const TextEditor: React.FC = () => {
+const TextEditor: React.FC = observer(( cellsStore ) => {
   const ref = useRef<HTMLDivElement | null>(null)
   const [editing, setEditing] = useState(false)
   const [value, setValue] = useState('# Header')
+  const store = useContext(CellsStoreContext);
 
   useEffect(() => {
+    console.log(store, 'test')
     const listener = (event: MouseEvent) => {
       if (ref.current && event.target && ref.current.contains(event.target as Node)) {
         return
@@ -32,11 +36,11 @@ const TextEditor: React.FC = () => {
       </div>
     )
   }
-  return <div className="text-editor" onClick={() => setEditing(true)}>
+  return <div className="text-editor card" onClick={() => setEditing(true)}>
     <div className="card-content">
       <MDEditor.Markdown source={value} />
     </div>
   </div>;
-}
+})
 
 export default TextEditor

@@ -21,6 +21,8 @@
     "bulmaswatch": "^0.8.1",
     "esbuild-wasm": "^0.20.2",
     "localforage": "^1.10.0",
+    "mobx": "^6.12.3",
+    "mobx-react": "^9.1.1",
     "monaco-editor": "^0.47.0",
     "monaco-jsx-highlighter": "^2.77.77",
     "prettier": "^3.2.5",
