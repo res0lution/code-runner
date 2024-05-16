@@ -5,10 +5,12 @@ import { Provider } from "mobx-react";
 
 
 // import CodeCell from "./components/code-cell";
-import TextEditor from "./components/text-editor";
+// import TextEditor from "./components/text-editor";
+import CellList from "./components/cell-list";
 import { cellsStore } from "./stores/CellsStore";
 
 import "bulmaswatch/superhero/bulmaswatch.min.css";
+
 
 const App = () => {
   useEffect(() => {
@@ -19,12 +21,15 @@ const App = () => {
       // @ts-ignore
       window.isEsBuild = true 
     });
+
+    cellsStore.insertCellBefore(null, 'code')
   }, []);
 
   return (
     <div>
       <Provider cellsStore={cellsStore}>
-        <TextEditor />
+        <CellList />
+        {/* <TextEditor /> */}
       </Provider>
       {/* <CodeCell /> */}
     </div>

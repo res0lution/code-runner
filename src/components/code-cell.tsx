@@ -4,15 +4,19 @@ import Editor from "./editor";
 import Preview from "./preview";
 import Resizable from "./resizable";
 import bundle from "../bundler";
+import { Cell, cellsStore } from "../stores/CellsStore";
 
-const CodeCell = () => {
+interface CodeCellProps {
+  cell: Cell
+}
+
+const CodeCell: React.FC<CodeCellProps> = ({ cell }) => {
   const [code, setCode] = useState("");
   const [err, setErr] = useState("");
-  const [input, setInput] = useState("");
 
   useEffect(() => {
     const timer = setTimeout(async () => {
-      const result = await bundle(input);
+      const result = await bundle(cell.content);
       setCode(result.code);
       setErr(result.err);
     }, 750)
@@ -20,13 +24,13 @@ const CodeCell = () => {
     return () => {
       clearTimeout(timer);
     }
-  }, [input])
+  }, [cell.content])
 
   return (
     <Resizable direction="vertical">
       <div style={{ height: "100%", display: "flex", flexDirection: "row"}}>
         <Resizable direction="horizontal">
-          <Editor value="const a = 1;" onChange={(v) => setInput(v)} />
+          <Editor value={cell.content} onChange={(v) => cellsStore.updateCell(cell.id, v)} />
         </Resizable>
         <Preview code={code} err={err} />
       </div>
