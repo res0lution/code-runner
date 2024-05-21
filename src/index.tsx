@@ -10,6 +10,7 @@ import CellList from "./components/cell-list";
 import { cellsStore } from "./stores/CellsStore";
 
 import "bulmaswatch/superhero/bulmaswatch.min.css";
+import "@fortawesome/fontawesome-free/css/all.min.css"
 
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
       window.isEsBuild = true 
     });
 
+    cellsStore.insertCellBefore(null, 'code')
     cellsStore.insertCellBefore(null, 'code')
   }, []);
 
