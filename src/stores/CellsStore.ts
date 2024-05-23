@@ -40,7 +40,7 @@ class CellsStore {
     this.order[targetIndex] = id
   }
 
-  insertCellBefore (id: string | null, type: CellType) {
+  insertCellAfter (id: string | null, type: CellType) {
     const cell: Cell = {
       content: '',
       type,
@@ -52,9 +52,9 @@ class CellsStore {
     const foundIndex = this.order.findIndex(c => c === id)
 
     if (foundIndex < 0) {
-      this.order.push(cell.id)
+      this.order.unshift(cell.id)
     } else {
-      this.order.splice(foundIndex, 0, cell.id)
+      this.order.splice(foundIndex + 1, 0, cell.id)
     }
   }
 }

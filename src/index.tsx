@@ -22,9 +22,6 @@ const App = () => {
       // @ts-ignore
       window.isEsBuild = true 
     });
-
-    cellsStore.insertCellBefore(null, 'code')
-    cellsStore.insertCellBefore(null, 'code')
   }, []);
 
   return (

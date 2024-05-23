@@ -3,15 +3,16 @@ import { cellsStore } from "../stores/CellsStore";
 import './add-cell.css';
 
 interface AddCellProps {
-  nextCellId: string | null;
+  previousCellId: string | null;
+  forceVisible?: boolean;
 }
 
-const AddCell: React.FC<AddCellProps> = ({ nextCellId }) => {
-  return (<div className="add-cell">
+const AddCell: React.FC<AddCellProps> = ({ forceVisible, previousCellId }) => {
+  return (<div className={`add-cell ${forceVisible && 'force-visible'}`}>
     <div className="add-buttons">
       <button 
         className="button is-secondary is-small" 
-        onClick={() => cellsStore.insertCellBefore(nextCellId, 'code')}
+        onClick={() => cellsStore.insertCellAfter(previousCellId, 'code')}
       >
         <span className="icon is-small">
           <i className="fas fa-plus"></i>
@@ -21,7 +22,7 @@ const AddCell: React.FC<AddCellProps> = ({ nextCellId }) => {
 
       <button 
         className="button is-secondary is-small"  
-        onClick={() => cellsStore.insertCellBefore(nextCellId, 'text')}
+        onClick={() => cellsStore.insertCellAfter(previousCellId, 'text')}
       >
          <span className="icon is-small">
           <i className="fas fa-plus"></i>
