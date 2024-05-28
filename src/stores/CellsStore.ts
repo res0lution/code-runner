@@ -57,6 +57,34 @@ class CellsStore {
       this.order.splice(foundIndex + 1, 0, cell.id)
     }
   }
+
+  getCumulativeCode (id: string) {
+    const orderedCells= this.order.map(id => this.data[id])
+
+    const cumulativeCode = [
+      `
+        const show = (value) => {
+          if (typeof value === 'object') {
+            document.querySelector('#root').innerHTML = JSON.stringify(value)
+          } else {
+            document.querySelector('#root').innerHTML = value
+          }
+        }
+      `
+    ]
+    
+    for (let c of orderedCells) {
+      if (c.type === 'code') {
+        cumulativeCode.push(c.content)
+      }
+
+      if (c.id === id) {
+        break
+      }
+    }
+
+    return cumulativeCode
+  }
 }
 
 export const cellsStore = new CellsStore();

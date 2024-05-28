@@ -3,11 +3,9 @@ import { useEffect } from "react";
 import * as esbuild from "esbuild-wasm";
 import { Provider } from "mobx-react";
 
-
-// import CodeCell from "./components/code-cell";
-// import TextEditor from "./components/text-editor";
 import CellList from "./components/cell-list";
 import { cellsStore } from "./stores/CellsStore";
+import { bundlesStore } from "./stores/BundlesStore";
 
 import "bulmaswatch/superhero/bulmaswatch.min.css";
 import "@fortawesome/fontawesome-free/css/all.min.css"
@@ -17,7 +15,7 @@ const App = () => {
   useEffect(() => {
    esbuild.initialize({
       worker: true,
-      wasmURL: "https://unpkg.com/esbuild-wasm/esbuild.wasm",
+      wasmURL: "https://unpkg.com/esbuild-wasm@0.21.4/esbuild.wasm",
     }).then(() => { 
       // @ts-ignore
       window.isEsBuild = true 
@@ -26,11 +24,9 @@ const App = () => {
 
   return (
     <div>
-      <Provider cellsStore={cellsStore}>
+      <Provider cellsStore={cellsStore} bundlesStore={bundlesStore}>
         <CellList />
-        {/* <TextEditor /> */}
       </Provider>
-      {/* <CodeCell /> */}
     </div>
   );
 };

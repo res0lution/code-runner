@@ -1,30 +1,46 @@
 import { makeAutoObservable } from "mobx"
 import { createContext } from "react";
+import bundle from "../bundler";
 
-// type CellType = 'code' | 'text';
+type BundleType = {
+  loading: boolean;
+  code: string;
+  err: string;
+} | undefined;
 
-// export interface Cell {
-//   id: string;
-//   type: CellType;
-//   content: string;
-// }
+export interface Bundles {
+  [key: string]: BundleType
+}
 
 class BundlesStore {
-  loading = false
-  error: string | null = null
-  order: string[] = []
-  // data: { [key: string]: Cell } = {}
+  bundles: Bundles = {}
 
   constructor() {
     makeAutoObservable(this)
   }
 
-  bundleStart (id: string) {
+  async createBundle (id: string, input: string) {
+    this.bundleStart(id)
 
+    const result = await bundle(input)
+
+    this.bundleComplete(id, { code: result.code, err: result.err })
   }
 
-  bundleComplete (id: string) {
+  bundleStart (id: string) {
+    this.bundles[id] = {
+      loading: true,
+      code: '',
+      err: ''
+    }
+  }
 
+  bundleComplete (id: string, { code = '', err =  ''}) {
+    this.bundles[id] = {
+      loading: false,
+      code,
+      err,
+    }
   }
 }
 
