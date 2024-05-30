@@ -5,6 +5,8 @@ import { CellsStoreContext } from "../stores/CellsStore";
 import CellListItem from "./cell-list-item";
 import AddCell from "./add-cell";
 
+import './cell-list.css'
+
 const CellList: React.FC = observer(() => {
   const { order, data } = useContext(CellsStoreContext)
   const cells = order.map((id) => data[id])
@@ -16,7 +18,7 @@ const CellList: React.FC = observer(() => {
   ))
 
   return (
-    <div>
+    <div className="cell-list">
       <AddCell forceVisible={cells.length === 0} previousCellId={null} />
       {renderedCells}
     </div>

@@ -17,17 +17,16 @@ const CodeCell: React.FC<CodeCellProps> = observer(({ cell }) => {
   const { bundles } = useContext(BundlesStoreContext)
   const bundle = bundles[cell.id]
   const cumulativeCode = cellsStore.getCumulativeCode(cell.id)
-  const code = cumulativeCode.join('\n')
 
   useEffect(() => {
     const timer = setTimeout(async () => {
-      await bundlesStore.createBundle(cell.id, code)
+      await bundlesStore.createBundle(cell.id, cumulativeCode)
     }, 750)
 
     return () => {
       clearTimeout(timer);
     }
-  }, [cell.content, cell.id, code])
+  }, [cell.content, cell.id, cumulativeCode])
 
   return (
     <Resizable direction="vertical">
