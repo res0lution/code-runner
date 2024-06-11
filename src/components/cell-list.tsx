@@ -10,6 +10,7 @@ import './cell-list.css'
 const CellList: React.FC = observer(() => {
   const { order, data } = useContext(CellsStoreContext)
   const cells = order.map((id) => data[id])
+
   const renderedCells = cells.map((cell) => (
     <Fragment key={cell.id}>
       <CellListItem key={cell.id} cell={cell} />

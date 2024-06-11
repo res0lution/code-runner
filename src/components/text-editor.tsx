@@ -1,7 +1,8 @@
 import MDEditor from "@uiw/react-md-editor";
 import { useEffect, useRef, useState } from "react";
-import { Cell, cellsStore } from "../stores/CellsStore";
 import { observer } from "mobx-react"
+
+import { Cell, cellsStore } from "../stores/CellsStore";
 
 import "./text-editor.css"
 
