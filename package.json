@@ -42,7 +42,6 @@
     "build": "react-app-rewired build",
     "test": "react-app-rewired test",
     "eject": "react-app-rewired eject",
-    "server": "node local-api.js"
   },
   "eslintConfig": {
     "extends": [
